@@ -2,7 +2,6 @@ package dev.lochness.java;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 /*
     Write a function that takes an array of numbers (integers for the tests) and a target number.
