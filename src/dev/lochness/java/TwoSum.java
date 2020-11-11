@@ -1,5 +1,9 @@
 package dev.lochness.java;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /*
     Write a function that takes an array of numbers (integers for the tests) and a target number.
     It should find two different items in the array that, when added together, give the target value.
@@ -20,5 +24,25 @@ public class TwoSum {
                     return result;
                 }
         return result;
+    }
+
+    public static int[] twoSumHashMap(int[] numbers, int target) {
+        int[] result = new int[2];
+        HashMap<Integer, Integer> searchMap = new HashMap<>();
+        for (int i = 0; i < numbers.length; i++) {
+            searchMap.put(numbers[i], i);
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            int second = target - numbers[i];
+            if (searchMap.containsKey(second) && !searchMap.get(second).equals(i)) {
+                result[0] = i;
+                result[1] = searchMap.get(second);
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Arrays.stream(twoSumHashMap(new int[]{3, 6, 9, 12, 26, 65, 54, 25}, 9)).forEach(System.out::println);
     }
 }
